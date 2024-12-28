@@ -1,0 +1,71 @@
+/ {
+	model = "Bumblebee nRF52840 Board";
+	compatible = "bumblebee,nrf52840";
+
+	chosen {
+		zephyr,console = &uart0;  /* If you're using UART for logs/console */
+	};
+};
+
+#include <nordic/nrf52840_qia.dtsi>
+
+/ {
+	/* 6 Direct-Wire Keys on P0.13, P0.15, P0.17, P0.22, P0.24, P1.00 */
+	bumblebee_keys: buttons {
+		compatible = "gpio-keys";
+
+		button0: key_0 {
+			gpios = <&gpio0 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+			label = "KEY0";
+		};
+		button1: key_1 {
+			gpios = <&gpio0 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+			label = "KEY1";
+		};
+		button2: key_2 {
+			gpios = <&gpio0 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+			label = "KEY2";
+		};
+		button3: key_3 {
+			gpios = <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+			label = "KEY3";
+		};
+		button4: key_4 {
+			gpios = <&gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+			label = "KEY4";
+		};
+		button5: key_5 {
+			gpios = <&gpio1 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+			label = "KEY5";
+		};
+	};
+};
+
+/* Enable the default I2C controller for your nPM1300 PMIC at address 0x68 */
+&i2c0 {
+	status = "okay";
+
+	npm1300: npm1300@68 {
+		compatible = "nordic,npm1300";
+		reg = <0x68>;
+		label = "nPM1300 PMIC";
+	};
+};
+
+/* Make sure these peripherals are enabled if you need them. */
+&gpio0 {
+	status = "okay";
+};
+
+&gpio1 {
+	status = "okay";
+};
+
+&uart0 {
+	status = "okay";
+};
+
+&usbd {
+	status = "okay";
+};
+

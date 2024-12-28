@@ -1,0 +1,16 @@
+identifier: bumblebee
+name: Bumblebee
+type: keyboard
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+ram: 256
+flash: 1024
+supported:
+  - gpio
+  - i2c
+  - ble
+  - usb_device
+  - kscan
+  - nvs

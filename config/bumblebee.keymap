@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 The ZMK Contributors
+ * Copyright (c) 2020 The ZMK Contributors
  *
  * SPDX-License-Identifier: MIT
  */
@@ -14,8 +14,7 @@
 
         default_layer {
             bindings = <
-                &kp X
-                &kp Z
+                &kp A &kp B &kp C &kp D &kp E &kp F
             >;
         };
     };

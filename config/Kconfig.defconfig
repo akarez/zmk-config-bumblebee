@@ -1,0 +1,22 @@
+if BOARD_BUMBLEBEE
+
+config BOARD
+    default "bumblebee"
+
+if USB_DEVICE_STACK
+
+config USB
+    default y
+
+config USB_DEVICE_STACK
+    default y
+
+endif # USB
+
+config BT_CTLR
+    default BT
+
+config ZMK_KEYBOARD_NAME
+    default "Bumblebee"
+
+endif # BOARD_BUMBLEBEE
